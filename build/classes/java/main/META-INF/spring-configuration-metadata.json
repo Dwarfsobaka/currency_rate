@@ -1,0 +1,84 @@
+{
+  "groups": [
+    {
+      "name": "feign",
+      "type": "com.example.currencyrate.config.ConfigProperties",
+      "sourceType": "com.example.currencyrate.config.ConfigProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "feign.api-key",
+      "type": "java.lang.String",
+      "sourceType": "com.example.currencyrate.config.ConfigProperties"
+    },
+    {
+      "name": "feign.api_key",
+      "type": "java.lang.String",
+      "description": "Description for app.feign.config.url."
+    },
+    {
+      "name": "feign.app-id",
+      "type": "java.lang.String",
+      "sourceType": "com.example.currencyrate.config.ConfigProperties"
+    },
+    {
+      "name": "feign.app_id",
+      "type": "java.lang.String",
+      "description": "Description for app.feign.config.url."
+    },
+    {
+      "name": "feign.currency",
+      "type": "java.lang.String",
+      "description": "Description for app.feign.config.url.",
+      "sourceType": "com.example.currencyrate.config.ConfigProperties"
+    },
+    {
+      "name": "feign.limit-gif",
+      "type": "java.lang.String",
+      "sourceType": "com.example.currencyrate.config.ConfigProperties"
+    },
+    {
+      "name": "feign.limit.gif",
+      "type": "java.lang.String",
+      "description": "Description for app.feign.config.url."
+    },
+    {
+      "name": "feign.request-word-down",
+      "type": "java.lang.String",
+      "sourceType": "com.example.currencyrate.config.ConfigProperties"
+    },
+    {
+      "name": "feign.request-word-up",
+      "type": "java.lang.String",
+      "sourceType": "com.example.currencyrate.config.ConfigProperties"
+    },
+    {
+      "name": "feign.request.word.down",
+      "type": "java.lang.String",
+      "description": "Description for app.feign.config.url."
+    },
+    {
+      "name": "feign.request.word.up",
+      "type": "java.lang.String",
+      "description": "Description for app.feign.config.url."
+    },
+    {
+      "name": "feign.url",
+      "type": "java.lang.String",
+      "description": "Description for app.feign.config.url."
+    },
+    {
+      "name": "feign.url-gif",
+      "type": "java.lang.String",
+      "description": "Description for app.feign.config.url.",
+      "sourceType": "com.example.currencyrate.config.ConfigProperties"
+    },
+    {
+      "name": "feign.url-rate",
+      "type": "java.lang.String",
+      "sourceType": "com.example.currencyrate.config.ConfigProperties"
+    }
+  ],
+  "hints": []
+}
