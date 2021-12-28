@@ -1,0 +1,43 @@
+{
+  "properties": [
+    {
+      "name": "feign.url",
+      "type": "java.lang.String",
+      "description": "Description for app.feign.config.url."
+  },
+    {
+      "name": "feign.currency",
+      "type": "java.lang.String",
+      "description": "Description for app.feign.config.url."
+    },
+    {
+      "name": "feign.app_id",
+      "type": "java.lang.String",
+      "description": "Description for app.feign.config.url."
+    },
+    {
+      "name": "feign.url-gif",
+      "type": "java.lang.String",
+      "description": "Description for app.feign.config.url."
+    },
+    {
+      "name": "feign.api_key",
+      "type": "java.lang.String",
+      "description": "Description for app.feign.config.url."
+    },
+    {
+      "name": "feign.request.word.up",
+      "type": "java.lang.String",
+      "description": "Description for app.feign.config.url."
+    },
+    {
+      "name": "feign.request.word.down",
+      "type": "java.lang.String",
+      "description": "Description for app.feign.config.url."
+    },
+    {
+      "name": "feign.limit.gif",
+      "type": "java.lang.String",
+      "description": "Description for app.feign.config.url."
+    }
+] }
