@@ -1,4 +1,8 @@
 # currency_rate
+Microservice that shows gif depending on currency rates.
+<br>If the rate against the dollar is higher, a gif is displayed from https://giphy.com/search/rich. 
+<br>Else: https://giphy.com/search/broke
+
 <H2>Instructions for starting the project.</H2>
 
 <H3>For Docker:</H3>
