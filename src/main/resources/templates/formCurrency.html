@@ -1,10 +1,186 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-</head>
+
+    </head>
 <body>
-<p>Hello!</p>
+<form action="#" th:action="@{/rate}" method="post"  th:object="${currency}" >
+    <label>Select currency:</label>
+    <select th:field="*{currency}">
+        <option	th:value="	AED	"	th:text="	AED	"	>	</option>
+        <option	th:value="	AFN	"	th:text="	AFN	"	>	</option>
+        <option	th:value="	ALL	"	th:text="	ALL	"	>	</option>
+        <option	th:value="	AMD	"	th:text="	AMD	"	>	</option>
+        <option	th:value="	ANG	"	th:text="	ANG	"	>	</option>
+        <option	th:value="	AOA	"	th:text="	AOA	"	>	</option>
+        <option	th:value="	ARS	"	th:text="	ARS	"	>	</option>
+        <option	th:value="	AUD	"	th:text="	AUD	"	>	</option>
+        <option	th:value="	AWG	"	th:text="	AWG	"	>	</option>
+        <option	th:value="	AZN	"	th:text="	AZN	"	>	</option>
+        <option	th:value="	BAM	"	th:text="	BAM	"	>	</option>
+        <option	th:value="	BBD	"	th:text="	BBD	"	>	</option>
+        <option	th:value="	BDT	"	th:text="	BDT	"	>	</option>
+        <option	th:value="	BGN	"	th:text="	BGN	"	>	</option>
+        <option	th:value="	BHD	"	th:text="	BHD	"	>	</option>
+        <option	th:value="	BIF	"	th:text="	BIF	"	>	</option>
+        <option	th:value="	BMD	"	th:text="	BMD	"	>	</option>
+        <option	th:value="	BND	"	th:text="	BND	"	>	</option>
+        <option	th:value="	BOB	"	th:text="	BOB	"	>	</option>
+        <option	th:value="	BRL	"	th:text="	BRL	"	>	</option>
+        <option	th:value="	BSD	"	th:text="	BSD	"	>	</option>
+        <option	th:value="	BTC	"	th:text="	BTC	"	>	</option>
+        <option	th:value="	BTN	"	th:text="	BTN	"	>	</option>
+        <option	th:value="	BWP	"	th:text="	BWP	"	>	</option>
+        <option	th:value="	BYN	"	th:text="	BYN	"	>	</option>
+        <option	th:value="	BZD	"	th:text="	BZD	"	>	</option>
+        <option	th:value="	CAD	"	th:text="	CAD	"	>	</option>
+        <option	th:value="	CDF	"	th:text="	CDF	"	>	</option>
+        <option	th:value="	CHF	"	th:text="	CHF	"	>	</option>
+        <option	th:value="	CLF	"	th:text="	CLF	"	>	</option>
+        <option	th:value="	CLP	"	th:text="	CLP	"	>	</option>
+        <option	th:value="	CNH	"	th:text="	CNH	"	>	</option>
+        <option	th:value="	CNY	"	th:text="	CNY	"	>	</option>
+        <option	th:value="	COP	"	th:text="	COP	"	>	</option>
+        <option	th:value="	CRC	"	th:text="	CRC	"	>	</option>
+        <option	th:value="	CUC	"	th:text="	CUC	"	>	</option>
+        <option	th:value="	CUP	"	th:text="	CUP	"	>	</option>
+        <option	th:value="	CVE	"	th:text="	CVE	"	>	</option>
+        <option	th:value="	CZK	"	th:text="	CZK	"	>	</option>
+        <option	th:value="	DJF	"	th:text="	DJF	"	>	</option>
+        <option	th:value="	DKK	"	th:text="	DKK	"	>	</option>
+        <option	th:value="	DOP	"	th:text="	DOP	"	>	</option>
+        <option	th:value="	DZD	"	th:text="	DZD	"	>	</option>
+        <option	th:value="	EGP	"	th:text="	EGP	"	>	</option>
+        <option	th:value="	ERN	"	th:text="	ERN	"	>	</option>
+        <option	th:value="	ETB	"	th:text="	ETB	"	>	</option>
+        <option	th:value="	EUR	"	th:text="	EUR	"	>	</option>
+        <option	th:value="	FJD	"	th:text="	FJD	"	>	</option>
+        <option	th:value="	FKP	"	th:text="	FKP	"	>	</option>
+        <option	th:value="	GBP	"	th:text="	GBP	"	>	</option>
+        <option	th:value="	GEL	"	th:text="	GEL	"	>	</option>
+        <option	th:value="	GGP	"	th:text="	GGP	"	>	</option>
+        <option	th:value="	GHS	"	th:text="	GHS	"	>	</option>
+        <option	th:value="	GIP	"	th:text="	GIP	"	>	</option>
+        <option	th:value="	GMD	"	th:text="	GMD	"	>	</option>
+        <option	th:value="	GNF	"	th:text="	GNF	"	>	</option>
+        <option	th:value="	GTQ	"	th:text="	GTQ	"	>	</option>
+        <option	th:value="	GYD	"	th:text="	GYD	"	>	</option>
+        <option	th:value="	HKD	"	th:text="	HKD	"	>	</option>
+        <option	th:value="	HNL	"	th:text="	HNL	"	>	</option>
+        <option	th:value="	HRK	"	th:text="	HRK	"	>	</option>
+        <option	th:value="	HTG	"	th:text="	HTG	"	>	</option>
+        <option	th:value="	HUF	"	th:text="	HUF	"	>	</option>
+        <option	th:value="	IDR	"	th:text="	IDR	"	>	</option>
+        <option	th:value="	ILS	"	th:text="	ILS	"	>	</option>
+        <option	th:value="	IMP	"	th:text="	IMP	"	>	</option>
+        <option	th:value="	INR	"	th:text="	INR	"	>	</option>
+        <option	th:value="	IQD	"	th:text="	IQD	"	>	</option>
+        <option	th:value="	IRR	"	th:text="	IRR	"	>	</option>
+        <option	th:value="	ISK	"	th:text="	ISK	"	>	</option>
+        <option	th:value="	JEP	"	th:text="	JEP	"	>	</option>
+        <option	th:value="	JMD	"	th:text="	JMD	"	>	</option>
+        <option	th:value="	JOD	"	th:text="	JOD	"	>	</option>
+        <option	th:value="	JPY	"	th:text="	JPY	"	>	</option>
+        <option	th:value="	KES	"	th:text="	KES	"	>	</option>
+        <option	th:value="	KGS	"	th:text="	KGS	"	>	</option>
+        <option	th:value="	KHR	"	th:text="	KHR	"	>	</option>
+        <option	th:value="	KMF	"	th:text="	KMF	"	>	</option>
+        <option	th:value="	KPW	"	th:text="	KPW	"	>	</option>
+        <option	th:value="	KRW	"	th:text="	KRW	"	>	</option>
+        <option	th:value="	KWD	"	th:text="	KWD	"	>	</option>
+        <option	th:value="	KYD	"	th:text="	KYD	"	>	</option>
+        <option	th:value="	KZT	"	th:text="	KZT	"	>	</option>
+        <option	th:value="	LAK	"	th:text="	LAK	"	>	</option>
+        <option	th:value="	LBP	"	th:text="	LBP	"	>	</option>
+        <option	th:value="	LKR	"	th:text="	LKR	"	>	</option>
+        <option	th:value="	LRD	"	th:text="	LRD	"	>	</option>
+        <option	th:value="	LSL	"	th:text="	LSL	"	>	</option>
+        <option	th:value="	LYD	"	th:text="	LYD	"	>	</option>
+        <option	th:value="	MAD	"	th:text="	MAD	"	>	</option>
+        <option	th:value="	MDL	"	th:text="	MDL	"	>	</option>
+        <option	th:value="	MGA	"	th:text="	MGA	"	>	</option>
+        <option	th:value="	MKD	"	th:text="	MKD	"	>	</option>
+        <option	th:value="	MMK	"	th:text="	MMK	"	>	</option>
+        <option	th:value="	MNT	"	th:text="	MNT	"	>	</option>
+        <option	th:value="	MOP	"	th:text="	MOP	"	>	</option>
+        <option	th:value="	MRU	"	th:text="	MRU	"	>	</option>
+        <option	th:value="	MUR	"	th:text="	MUR	"	>	</option>
+        <option	th:value="	MVR	"	th:text="	MVR	"	>	</option>
+        <option	th:value="	MWK	"	th:text="	MWK	"	>	</option>
+        <option	th:value="	MXN	"	th:text="	MXN	"	>	</option>
+        <option	th:value="	MYR	"	th:text="	MYR	"	>	</option>
+        <option	th:value="	MZN	"	th:text="	MZN	"	>	</option>
+        <option	th:value="	NAD	"	th:text="	NAD	"	>	</option>
+        <option	th:value="	NGN	"	th:text="	NGN	"	>	</option>
+        <option	th:value="	NIO	"	th:text="	NIO	"	>	</option>
+        <option	th:value="	NOK	"	th:text="	NOK	"	>	</option>
+        <option	th:value="	NPR	"	th:text="	NPR	"	>	</option>
+        <option	th:value="	NZD	"	th:text="	NZD	"	>	</option>
+        <option	th:value="	OMR	"	th:text="	OMR	"	>	</option>
+        <option	th:value="	PAB	"	th:text="	PAB	"	>	</option>
+        <option	th:value="	PEN	"	th:text="	PEN	"	>	</option>
+        <option	th:value="	PGK	"	th:text="	PGK	"	>	</option>
+        <option	th:value="	PHP	"	th:text="	PHP	"	>	</option>
+        <option	th:value="	PKR	"	th:text="	PKR	"	>	</option>
+        <option	th:value="	PLN	"	th:text="	PLN	"	>	</option>
+        <option	th:value="	PYG	"	th:text="	PYG	"	>	</option>
+        <option	th:value="	QAR	"	th:text="	QAR	"	>	</option>
+        <option	th:value="	RON	"	th:text="	RON	"	>	</option>
+        <option	th:value="	RSD	"	th:text="	RSD	"	>	</option>
+        <option	th:value="	RUB	"	th:text="	RUB	"	>	</option>
+        <option	th:value="	RWF	"	th:text="	RWF	"	>	</option>
+        <option	th:value="	SAR	"	th:text="	SAR	"	>	</option>
+        <option	th:value="	SBD	"	th:text="	SBD	"	>	</option>
+        <option	th:value="	SCR	"	th:text="	SCR	"	>	</option>
+        <option	th:value="	SDG	"	th:text="	SDG	"	>	</option>
+        <option	th:value="	SEK	"	th:text="	SEK	"	>	</option>
+        <option	th:value="	SGD	"	th:text="	SGD	"	>	</option>
+        <option	th:value="	SHP	"	th:text="	SHP	"	>	</option>
+        <option	th:value="	SLL	"	th:text="	SLL	"	>	</option>
+        <option	th:value="	SOS	"	th:text="	SOS	"	>	</option>
+        <option	th:value="	SRD	"	th:text="	SRD	"	>	</option>
+        <option	th:value="	SSP	"	th:text="	SSP	"	>	</option>
+        <option	th:value="	STD	"	th:text="	STD	"	>	</option>
+        <option	th:value="	STN	"	th:text="	STN	"	>	</option>
+        <option	th:value="	SVC	"	th:text="	SVC	"	>	</option>
+        <option	th:value="	SYP	"	th:text="	SYP	"	>	</option>
+        <option	th:value="	SZL	"	th:text="	SZL	"	>	</option>
+        <option	th:value="	THB	"	th:text="	THB	"	>	</option>
+        <option	th:value="	TJS	"	th:text="	TJS	"	>	</option>
+        <option	th:value="	TMT	"	th:text="	TMT	"	>	</option>
+        <option	th:value="	TND	"	th:text="	TND	"	>	</option>
+        <option	th:value="	TOP	"	th:text="	TOP	"	>	</option>
+        <option	th:value="	TRY	"	th:text="	TRY	"	>	</option>
+        <option	th:value="	TTD	"	th:text="	TTD	"	>	</option>
+        <option	th:value="	TWD	"	th:text="	TWD	"	>	</option>
+        <option	th:value="	TZS	"	th:text="	TZS	"	>	</option>
+        <option	th:value="	UAH	"	th:text="	UAH	"	>	</option>
+        <option	th:value="	UGX	"	th:text="	UGX	"	>	</option>
+        <option	th:value="	USD	"	th:text="	USD	"	>	</option>
+        <option	th:value="	UYU	"	th:text="	UYU	"	>	</option>
+        <option	th:value="	UZS	"	th:text="	UZS	"	>	</option>
+        <option	th:value="	VES	"	th:text="	VES	"	>	</option>
+        <option	th:value="	VND	"	th:text="	VND	"	>	</option>
+        <option	th:value="	VUV	"	th:text="	VUV	"	>	</option>
+        <option	th:value="	WST	"	th:text="	WST	"	>	</option>
+        <option	th:value="	XAF	"	th:text="	XAF	"	>	</option>
+        <option	th:value="	XAG	"	th:text="	XAG	"	>	</option>
+        <option	th:value="	XAU	"	th:text="	XAU	"	>	</option>
+        <option	th:value="	XCD	"	th:text="	XCD	"	>	</option>
+        <option	th:value="	XDR	"	th:text="	XDR	"	>	</option>
+        <option	th:value="	XOF	"	th:text="	XOF	"	>	</option>
+        <option	th:value="	XPD	"	th:text="	XPD	"	>	</option>
+        <option	th:value="	XPF	"	th:text="	XPF	"	>	</option>
+        <option	th:value="	XPT	"	th:text="	XPT	"	>	</option>
+        <option	th:value="	YER	"	th:text="	YER	"	>	</option>
+        <option	th:value="	ZAR	"	th:text="	ZAR	"	>	</option>
+        <option	th:value="	ZMW	"	th:text="	ZMW	"	>	</option>
+        <option	th:value="	ZWL	"	th:text="	ZWL	"	>	</option>
+    </select>
+
+    <button type="submit">Get rate!</button>
+</form>
 </body>
 </html>
