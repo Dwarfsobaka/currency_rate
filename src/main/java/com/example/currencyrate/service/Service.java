@@ -3,6 +3,9 @@ package com.example.currencyrate.service;
 import com.example.currencyrate.config.ConfigProperties;
 import com.example.currencyrate.api.ApiCurrency;
 import com.example.currencyrate.api.ApiGif;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
@@ -10,18 +13,19 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-
-
 import java.text.SimpleDateFormat;
 import java.util.*;
 
 @org.springframework.stereotype.Service
 public class Service {
 
+//    private Map <String, Double> ratesLatest;
+//    private Map <String, Double> ratesYestarday;
+//    private ArrayList<String> currencies;
+
     private final ApiCurrency proxy;
     private final ConfigProperties configProperties;
     private final ApiGif apiGif;
-
 
     @Autowired
     public Service(@Qualifier("apiCurrency") ApiCurrency proxy, ConfigProperties configProperties, @Qualifier("apiGif")ApiGif apiGif) {
@@ -30,13 +34,42 @@ public class Service {
         this.apiGif = apiGif;
     }
 
-    public boolean isHigher (){
-        Double latestRate = parseJsonRate(proxy.getLatestRate(configProperties.getAppId()));
-        Double historicalRate = parseJsonRate(proxy.getHistoricalRate(configProperties.getAppId(),getYestarday()));
-        int compareValue = latestRate.compareTo(historicalRate);
+    //парсим json, получаем карту последних значений
+    public Map <String, Double> getMapFromJsonLatest(){
+      Map <String, Double> ratesLatest = new TreeMap<>();
+      String json = proxy.getLatestRate(configProperties.getAppId());
+      JSONObject obj;
+      try {
+          obj = (JSONObject) JSONValue.parseWithException(json);
+          JSONObject rates = (JSONObject)obj.get("rates");
+          ratesLatest = new ObjectMapper().readValue(rates.toJSONString(), new TypeReference<Map<String, Double>>(){});
+      } catch (JsonProcessingException | ParseException e) {
+          e.printStackTrace();
+      }
+      return ratesLatest;
+  }
 
-        return compareValue > 0;
+    //парсим json, получаем карту вчерашних значений
+    public Map <String, Double> getMapFromJsonYestarday(){
+        Map <String, Double> ratesYestarday = new TreeMap<>();
+        String json = proxy.getHistoricalRate(configProperties.getAppId(),getYestarday());
+        JSONObject obj;
+        try {
+            obj = (JSONObject) JSONValue.parseWithException(json);
+            JSONObject rates = (JSONObject)obj.get("rates");
+            ratesYestarday = new ObjectMapper().readValue(rates.toJSONString(), new TypeReference<Map<String, Double>>(){});
+        } catch (JsonProcessingException | ParseException e) {
+            e.printStackTrace();
+        }
+        return ratesYestarday;
     }
+
+//    public boolean isHigher (){
+//        Double latestRate = parseJsonRate(proxy.getLatestRate(configProperties.getAppId()));
+//        Double historicalRate = parseJsonRate(proxy.getHistoricalRate(configProperties.getAppId(),getYestarday()));
+//        int compareValue = latestRate.compareTo(historicalRate);
+//        return compareValue > 0;
+//    }
 
     public String getYestarday(){
         SimpleDateFormat formatOfDate = new SimpleDateFormat("yyyy-MM-dd");
@@ -46,20 +79,21 @@ public class Service {
         return formatOfDate.format(yestarday);
     }
 
+
     //парсим json, получаем ставку по валюте
-    public Double parseJsonRate (String json) {
-        JSONObject obj;
-        Double currency = 0.0;
-        try {
-            obj = (JSONObject) JSONValue.parseWithException(json);
-            JSONObject rates = (JSONObject)obj.get("rates");
-            currency = (Double) rates.get(configProperties.getCurrency());
-        }
-        catch (ParseException e){
-            System.out.println("Invalid Json!");
-        }
-        return currency;
-    }
+//    public Double parseJsonRate (String json) {
+//        JSONObject obj;
+//        Double currency = 0.0;
+//        try {
+//            obj = (JSONObject) JSONValue.parseWithException(json);
+//            JSONObject rates = (JSONObject)obj.get("rates");
+//            currency = (Double) rates.get(configProperties.getCurrency());
+//        }
+//        catch (ParseException e){
+//            System.out.println("Invalid Json!");
+//        }
+//        return currency;
+//    }
 
     //парсим json, получаем url гифки
     public String parseJsonGifUp( ) {
