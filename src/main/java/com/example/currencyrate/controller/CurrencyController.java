@@ -9,38 +9,57 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.Map;
+
 
 @Controller
 @RequestMapping(value = "/rate")
 public class CurrencyController {
 
-
     private final Service service;
-    private final ConfigProperties configProperties;
+
 
     @Autowired
-    public CurrencyController(Service service, ConfigProperties configProperties) {
+    public CurrencyController(Service service) {
         this.service = service;
-        this.configProperties = configProperties;
     }
 
     @GetMapping()
     public String formCurrency(Model model) {
-     Currency currency = new Currency();
+      Currency currency = new Currency();
      model.addAttribute("currency", currency);
-//      ArrayList<String> list = new ArrayList<>(service.getMapFromJsonLatest().keySet());
-//      model.addAttribute("listOfCurrency", list);
-      //Collections.sort(list);
         return "formCurrency";
     }
 
     @PostMapping("")
     public String submitForm(@ModelAttribute("currency") Currency currency) {
-        System.out.println(currency.getCurrency());
-        return "test";
+        if(isHigher(currency.getCurrency())) {
+            return "gifFileRich";
+        }
+        else {
+            return "gifFilePoor";}
+    }
+
+    public boolean isHigher (String currency){
+
+       service.setLatest(service.getMapFromJsonLatest());
+       service.setYesterday(service.getMapFromJsonYesterday());
+
+        Map<String, Double> latest = service.getLatest();
+        Map <String, Double> yesterday = service.getYesterdayRate();
+
+        for (String key: latest.keySet()) {
+            if(key.equalsIgnoreCase(currency)) {
+                service.setRateLatest(latest.get(key));
+            }}
+
+        for (String key: yesterday.keySet()) {
+            if(key.equalsIgnoreCase(currency)) {
+                service.setRateYesterday(yesterday.get(key));
+            }}
+
+        int compareValue = service.getRateLatest().compareTo( service.getRateYesterday());
+        return compareValue > 0;
     }
 
 

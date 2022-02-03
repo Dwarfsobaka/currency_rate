@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
     </head>
 <body>
+<div class="CenterBlock">
 <form action="#" th:action="@{/rate}" method="post"  th:object="${currency}" >
     <label>Select currency:</label>
-    <select th:field="*{currency}">
+    <select  th:field="*{currency}">
         <option	th:value="	AED	"	th:text="	AED	"	>	</option>
         <option	th:value="	AFN	"	th:text="	AFN	"	>	</option>
         <option	th:value="	ALL	"	th:text="	ALL	"	>	</option>
@@ -180,7 +181,8 @@
         <option	th:value="	ZWL	"	th:text="	ZWL	"	>	</option>
     </select>
 
-    <button type="submit">Get rate!</button>
+ <button type="submit" class="Button">I'm rich today?</button>
 </form>
+</div>
 </body>
 </html>

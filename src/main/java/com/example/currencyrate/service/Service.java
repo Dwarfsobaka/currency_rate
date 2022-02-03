@@ -19,13 +19,46 @@ import java.util.*;
 @org.springframework.stereotype.Service
 public class Service {
 
-//    private Map <String, Double> ratesLatest;
-//    private Map <String, Double> ratesYestarday;
-//    private ArrayList<String> currencies;
-
     private final ApiCurrency proxy;
     private final ConfigProperties configProperties;
     private final ApiGif apiGif;
+
+    private Map<String, Double> latestRateMap;
+    private Map <String, Double> yesterdayRateMap;
+    private Double rateLatest;
+    private Double rateYesterday;
+
+    public Double getRateLatest() {
+        return rateLatest;
+    }
+
+    public void setRateLatest(Double rateLatest) {
+        this.rateLatest = rateLatest;
+    }
+
+    public Double getRateYesterday() {
+        return rateYesterday;
+    }
+
+    public void setRateYesterday(Double rateYesterday) {
+        this.rateYesterday = rateYesterday;
+    }
+
+    public Map<String, Double> getLatest() {
+        return latestRateMap;
+    }
+
+    public Map<String, Double> getYesterdayRate() {
+        return yesterdayRateMap;
+    }
+
+    public void setLatest(Map<String, Double> latestRate) {
+        this.latestRateMap = latestRate;
+    }
+
+    public void setYesterday(Map<String, Double> yesterdayRate) {
+        this.yesterdayRateMap = yesterdayRate;
+    }
 
     @Autowired
     public Service(@Qualifier("apiCurrency") ApiCurrency proxy, ConfigProperties configProperties, @Qualifier("apiGif")ApiGif apiGif) {
@@ -50,9 +83,9 @@ public class Service {
   }
 
     //парсим json, получаем карту вчерашних значений
-    public Map <String, Double> getMapFromJsonYestarday(){
+    public Map <String, Double> getMapFromJsonYesterday(){
         Map <String, Double> ratesYestarday = new TreeMap<>();
-        String json = proxy.getHistoricalRate(configProperties.getAppId(),getYestarday());
+        String json = proxy.getHistoricalRate(configProperties.getAppId(), getYesterday());
         JSONObject obj;
         try {
             obj = (JSONObject) JSONValue.parseWithException(json);
@@ -64,36 +97,13 @@ public class Service {
         return ratesYestarday;
     }
 
-//    public boolean isHigher (){
-//        Double latestRate = parseJsonRate(proxy.getLatestRate(configProperties.getAppId()));
-//        Double historicalRate = parseJsonRate(proxy.getHistoricalRate(configProperties.getAppId(),getYestarday()));
-//        int compareValue = latestRate.compareTo(historicalRate);
-//        return compareValue > 0;
-//    }
-
-    public String getYestarday(){
+    public String getYesterday(){
         SimpleDateFormat formatOfDate = new SimpleDateFormat("yyyy-MM-dd");
         Calendar cal = Calendar.getInstance();
         cal.add(Calendar.DATE, -1);
-        Date yestarday = cal.getTime();
-        return formatOfDate.format(yestarday);
+        Date yesterday = cal.getTime();
+        return formatOfDate.format(yesterday);
     }
-
-
-    //парсим json, получаем ставку по валюте
-//    public Double parseJsonRate (String json) {
-//        JSONObject obj;
-//        Double currency = 0.0;
-//        try {
-//            obj = (JSONObject) JSONValue.parseWithException(json);
-//            JSONObject rates = (JSONObject)obj.get("rates");
-//            currency = (Double) rates.get(configProperties.getCurrency());
-//        }
-//        catch (ParseException e){
-//            System.out.println("Invalid Json!");
-//        }
-//        return currency;
-//    }
 
     //парсим json, получаем url гифки
     public String parseJsonGifUp( ) {
