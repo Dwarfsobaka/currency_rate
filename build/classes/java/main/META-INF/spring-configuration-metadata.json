@@ -30,8 +30,7 @@
     {
       "name": "feign.currency",
       "type": "java.lang.String",
-      "description": "Description for app.feign.config.url.",
-      "sourceType": "com.example.currencyrate.config.ConfigProperties"
+      "description": "Description for app.feign.config.url."
     },
     {
       "name": "feign.limit-gif",
