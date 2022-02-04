@@ -11,6 +11,6 @@ docker pull dwarfsobaka/currency-rate-v2:latest
 <ol><li>Download this project from github.</li>
 <li>On windows: 
   <br>in the command line write:  java -jar <Your_directory_Name>\currency-rate2\build\libs\currency-rate-0.0.1-SNAPSHOT.jar</li> 
-<li>Go to http://localhost:8080/rate?currency=RUB</li>
-<li>If you want to know the other rate of currency, you should change it in application.properties.</li>
+<li>Go to http://localhost:8080/rate</li>
+<li>Select currency</li>
   </ol>
