@@ -1,0 +1,14 @@
+.CenterBlock{
+    font-family: "Verdana", sans-serif;
+    width:400px;
+    height:400px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin:-200px 0 0 -200px;
+}
+
+.Button{
+    font-family: "Verdana", sans-serif;
+
+}

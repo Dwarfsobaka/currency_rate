@@ -3,8 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>You are poor today!</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>
 <body>
+<div class="CenterBlock">
 <img th:src="${@service.parseJsonGifDown()}" alt="Бедный"/>
+ <p>Rate today: <span th:text="${@service.getRateLatest}"></span></p>
+    <p>Rate yesterday: <span th:text="${@service.getRateYesterday}"></span></p>
+    </div>
 </body>
 </html>

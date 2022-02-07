@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 public class ConfigProperties {
 
     private String urlRate;
-    private String currency;
+   // private String currency;
     private String appId;
 
     private String urlGif;
@@ -80,12 +80,12 @@ public class ConfigProperties {
         else throw new NullPointerException("The field cannot be empty");
     }
 
-    public void setCurrency(String currency) {
-        if (currency!=null) {
-            this.currency = currency;
-        }
-        else throw new NullPointerException("The field cannot be empty");
-    }
+//    public void setCurrency(String currency) {
+//        if (currency!=null) {
+//            this.currency = currency;
+//        }
+//        else throw new NullPointerException("The field cannot be empty");
+//    }
 
     public void setAppId(String appId) {
         if (appId!=null) {
@@ -98,9 +98,9 @@ public class ConfigProperties {
         return urlRate;
     }
 
-    public String getCurrency() {
-        return currency;
-    }
+//    public String getCurrency() {
+//        return currency;
+//    }
 
     public String getAppId() {
         return appId;
